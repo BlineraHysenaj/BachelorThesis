@@ -27,9 +27,9 @@
     "eject": "react-scripts eject"
   },
   "build": {
-    "command": "react-scripts build",
+    "command": "CI= npm run build",
     "commandOrigin": "ui",
-    "publish": "/opt/build/repo/dist/BachelorThesis",
+    "publish": "/opt/build/repo/build",
     "publishOrigin": "ui"
   },
   "eslintConfig": {
