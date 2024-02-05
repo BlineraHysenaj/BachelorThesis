@@ -26,12 +26,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "build": {
-    "command": "CI= npm run build",
-    "commandOrigin": "ui",
-    "publish": "/opt/build/repo/build",
-    "publishOrigin": "ui"
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
