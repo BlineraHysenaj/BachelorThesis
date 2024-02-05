@@ -3,7 +3,6 @@ import * as XLSX from "xlsx";
 import CircularProgress from "@mui/material/CircularProgress";
 import Chart from "react-apexcharts";
 import "./App.css";
-import "leaflet/dist/leaflet.css";
 
 const directions = [
   "Prishtine (Ambasada Amerikane)-Mitrovice",

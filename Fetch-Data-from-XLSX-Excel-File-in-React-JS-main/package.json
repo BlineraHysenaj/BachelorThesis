@@ -11,12 +11,11 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "apexcharts": "^3.45.1",
-    "leaflet": "^1.9.4",
     "papaparse": "^5.4.1",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^3.0.1",
     "styled-components": "^6.1.6",
     "web-vitals": "^2.1.4",
     "xlsx": "^0.18.5"
@@ -26,6 +25,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "build": {
+    "command": "build",
+    "commandOrigin": "ui",
+    "publish": "/opt/build/repo/dist/BachelorThesis",
+    "publishOrigin": "ui"
   },
   "eslintConfig": {
     "extends": [
