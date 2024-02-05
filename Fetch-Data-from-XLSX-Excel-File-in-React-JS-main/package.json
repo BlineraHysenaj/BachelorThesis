@@ -27,7 +27,7 @@
     "eject": "react-scripts eject"
   },
   "build": {
-    "command": "build",
+    "command": "react-scripts build",
     "commandOrigin": "ui",
     "publish": "/opt/build/repo/dist/BachelorThesis",
     "publishOrigin": "ui"
