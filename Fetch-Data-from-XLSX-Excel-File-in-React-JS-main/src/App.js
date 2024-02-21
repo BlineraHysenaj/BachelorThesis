@@ -3,7 +3,7 @@ import * as XLSX from "xlsx";
 import CircularProgress from "@mui/material/CircularProgress";
 import Chart from "react-apexcharts";
 import "./App.css";
-
+import LeafletMap from "./Leaflet";
 const directions = [
   "Prishtinë (Ambasada Amerikane)-Mitrovicë",
   "Prishtinë (Te Ismeti)-Mitrovicë",
@@ -272,10 +272,14 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [greenLightClicked, setGreenLightClicked] = useState(false);
   const [selectedCar, setSelectedCar] = useState("car_a1");
+  const [selectedDirection, setSelectedDirection] = useState('');
+
   const handleChange = (event) => {
     setSelectedCar(event.target.value);
   };
-
+  const handleDirectionChange = (e) => {
+    setSelectedDirection(e.target.value);
+  };
   const [quarterChartData, setQuarterChartData] = useState({
     categories: [],
     series: [],
@@ -321,17 +325,18 @@ function App() {
         );
       });
 
-      const quarterCounts = filteredData.reduce((acc, row) => {
-        const key = row.quarter_of_day;
-        acc[key] = (acc[key] || 0) + row[selectedCar];
-        return acc;
-      }, {});
-
-      const quarterCategories = Object.keys(quarterCounts);
-      const quarterSeries = quarterCategories.map(
-        (category) => quarterCounts[category]
-      );
-
+      const quarterCounts = {};
+      for (let i = 1; i <= 48; i++) {
+        quarterCounts[i] = 0;
+      }
+      
+      filteredData.forEach((row) => {
+        quarterCounts[row.quarter_of_day] += row[selectedCar];
+      });
+  
+      const quarterCategories = quarters.map((quarter) => quarter.split(' ')[0]);
+      const quarterSeries = quarters.map((quarter) => quarterCounts[parseInt(quarter, 10)]);
+  
       setQuarterChartData({
         categories: quarterCategories,
         series: [
@@ -598,7 +603,7 @@ function App() {
           </div>
         )}
       </div>
-
+ 
       {loading && <CircularProgress color="success" style={{ height: 100 }} />}
 
       {data.length > 0 && (
@@ -656,9 +661,18 @@ function App() {
                 />
               )}
           </div>
+          {filteredData.length > 0 && (
+        <div>
+          <LeafletMap
+        startDestination={filteredData[0].start_destination}
+        endDestination={filteredData[0].end_destination}
+      />
+      
+        </div>
+      )}  
         </div>
       )}
-    </div>
+  </div>
   );
 }
 

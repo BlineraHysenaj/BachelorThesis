@@ -265,20 +265,20 @@ table {
     white-space: nowrap;
   }
   .traffic-table th,
-.traffic-table td {
-  min-width: 100px; 
-}
-.traffic-light-file-input {
-  gap: 1em; 
-}
-.traffic-light-file-input {
-  margin: 10px 0 10px 10px; 
-  padding: 5px;
-}
+  .traffic-table td {
+    min-width: 100px;
+  }
+  .traffic-light-file-input {
+    gap: 1em;
+  }
+  .traffic-light-file-input {
+    margin: 10px 0 10px 10px;
+    padding: 5px;
+  }
 
-.traffic-table {
-  margin-top: 10px;
-}
+  .traffic-table {
+    margin-top: 10px;
+  }
   .filter-data {
     display: flex;
     flex-direction: column;
@@ -302,14 +302,16 @@ table {
   .filter-option {
     width: 260px;
   }
-  
+
   .traffic-table td {
     padding: 10px;
     width: 100%;
     font-size: 14px;
-background-color: white;    text-align: center;
+    background-color: white;
+    text-align: center;
   }
-  #chartContainer, #carTypeChartContainer {
+  #chartContainer,
+  #carTypeChartContainer {
     background-color: white;
   }
 }
