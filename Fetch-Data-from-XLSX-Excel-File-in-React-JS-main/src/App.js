@@ -4,6 +4,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Chart from "react-apexcharts";
 import "./App.css";
 import LeafletMap from "./Leaflet";
+
 const directions = [
   "Prishtinë (Ambasada Amerikane)-Mitrovicë",
   "Prishtinë (Te Ismeti)-Mitrovicë",
@@ -272,13 +273,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [greenLightClicked, setGreenLightClicked] = useState(false);
   const [selectedCar, setSelectedCar] = useState("car_a1");
-  const [selectedDirection, setSelectedDirection] = useState('');
 
   const handleChange = (event) => {
     setSelectedCar(event.target.value);
-  };
-  const handleDirectionChange = (e) => {
-    setSelectedDirection(e.target.value);
   };
   const [quarterChartData, setQuarterChartData] = useState({
     categories: [],
@@ -329,14 +326,18 @@ function App() {
       for (let i = 1; i <= 48; i++) {
         quarterCounts[i] = 0;
       }
-      
+
       filteredData.forEach((row) => {
         quarterCounts[row.quarter_of_day] += row[selectedCar];
       });
-  
-      const quarterCategories = quarters.map((quarter) => quarter.split(' ')[0]);
-      const quarterSeries = quarters.map((quarter) => quarterCounts[parseInt(quarter, 10)]);
-  
+
+      const quarterCategories = quarters.map(
+        (quarter) => quarter.split(" ")[0]
+      );
+      const quarterSeries = quarters.map(
+        (quarter) => quarterCounts[parseInt(quarter, 10)]
+      );
+
       setQuarterChartData({
         categories: quarterCategories,
         series: [
@@ -376,9 +377,9 @@ function App() {
     xaxis: {
       type: "category",
       categories: quarters.map((quarter, index) => {
-        const formattedTime = quarter.split(" ")[1]; 
+        const formattedTime = quarter.split(" ")[1];
         return `${formattedTime}`;
-      }) ,
+      }),
       title: {
         text: "Quarters",
       },
@@ -603,7 +604,7 @@ function App() {
           </div>
         )}
       </div>
- 
+
       {loading && <CircularProgress color="success" style={{ height: 100 }} />}
 
       {data.length > 0 && (
@@ -661,18 +662,17 @@ function App() {
                 />
               )}
           </div>
-          {filteredData.length > 0 && (
-        <div>
-          <LeafletMap
-        startDestination={filteredData[0].start_destination}
-        endDestination={filteredData[0].end_destination}
-      />
-      
-        </div>
-      )}  
+          {/* {filteredData.length > 0 && (
+            <div>
+              <LeafletMap
+                startDestination={filteredData[0].start_destination}
+                endDestination={filteredData[0].end_destination}
+              />
+            </div>
+          )} */}
         </div>
       )}
-  </div>
+    </div>
   );
 }
 
