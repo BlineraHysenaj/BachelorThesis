@@ -101,7 +101,6 @@ const cities = [
   "Lekë Matranga",
   "Prishtinë (Te Ismeti)",
   "Prishtinë",
-  "Fushë Kosovë",
   "Gjergj Balsha",
   "Obiliq (Mitrovicë)",
   "Obiliq",
@@ -132,9 +131,7 @@ const cities = [
   "Dardania",
   "Bill Clinton",
   "Tirana (LAKRISHTE)",
-  "Bill Clinton",
   "Robert Dol (PEJTON)",
-  "Bill Clinton",
   "Ilaz Kodra",
   "28 Nëntori",
   "Dëshmorët e kombit",
@@ -167,7 +164,6 @@ const cities = [
   "Prishtina (Lagjia Marigona)",
   "Ferizaj",
   "Hotel Victory",
-  "Stacioni i Autobuseve",
   "Katedralja Nënë Tereza",
   "Podujevë",
   "Qender (Prishtinë)",
@@ -362,7 +358,26 @@ function App() {
       });
     }
   }, [data, filters, selectedCar]);
-
+  const getAvailableDestinations = () => {
+    if (!filters.start_destination) {
+      return cities;
+    }
+    
+    const startCity = filters.start_destination;
+    
+    // Filter directions to find those starting with the selected start city
+    const matchingDirections = directions.filter((direction) =>
+      direction.startsWith(startCity)
+    );
+  
+    // Extract the end destinations from the filtered directions
+    const endDestinations = matchingDirections.map((direction) =>
+      direction.split("-")[1].trim()
+    );
+  
+    return endDestinations;
+  };
+  
   const colors = ["#A52A2A", "#FFF8DC", "#FFB6C1", "#FFFF00"];
 
   const quarterChartOptions = {
@@ -567,11 +582,18 @@ function App() {
               </label>
               <label className="filter-option">
                 End Destination:
-                <SelectCity
+                <select
                   name="end_destination"
                   value={filters.end_destination}
                   onChange={handleFilterChange}
-                />
+                >
+                  <option value="" style={{width:"100%"}}>Select Filtered End Destination  </option>
+                  {getAvailableDestinations().map((city) => (
+                    <option key={city} value={city}>
+                      {city}
+                    </option>
+                  ))}
+                </select>
               </label>
             </div>
             <div className="filters-part1">
