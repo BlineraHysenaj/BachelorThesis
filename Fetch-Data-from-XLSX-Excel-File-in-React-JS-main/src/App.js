@@ -11,6 +11,7 @@ const directions = [
   "Prishtinë-Fushë Kosovë",
   "Prishtinë-Gjergj Balsha",
   "Mitrovicë-Lekë Matranga",
+  "Lekë Matranga-Mitrovicë",
   "Prishtinë-Obiliq (Mitrovicë)",
   "Prishtinë-Obiliq",
   "Prishtinë (Bast Trade)-Mitrovicë",
@@ -18,18 +19,22 @@ const directions = [
   "Prishtinë-Autostrada Ibrahim Rugova",
   "Prishtinë (Gazimestan)-Mitrovicë",
   "Prishtinë (Millosheve)-Mitrovicë",
-  "Obiliq-Podujeve",
-  "Podujevë-Obiliq-2",
+  "Obiliq-Podujevë",
+  "Podujevë-Obiliq",
   "Prishtinë-Obliliq(Tyrbe)",
   "Kosova C-Obiliq",
   "QKUK-Qender",
   "Prishtinë-Graqanice",
   "Prishtinë-Gjilan",
+  "Bill Clinton-Ilaz Kodra",
+  "Bill Clinton-Robert Dol (PEJTON)",
+  "Bill Clinton-Tirana (LAKRISHTE)",
+  "Dardania-Bill Clinton",
+  "Bill Clinton-Dardania",
   "EULEX-Qender",
   "A.A.Kelmendi-Rrethrrotullim (Rruga B)-2",
   "Gazmend Zajmi-Rrethrrotullim (Bregu i diellit)",
   "Tahir Zajmi (Kalabria)-M9",
-  "Dardania-Bill Clinton",
   "Tirana (LAKRISHTE)-Bill Clinton",
   "Robert Dol (PEJTON)-Bill Clinton",
   "Ilaz Kodra-Bill Clinton",
@@ -50,7 +55,7 @@ const directions = [
   "Shfmu Mitrush Kuteli-Xhamia e Matit",
   "Zllatar-Matiqan",
   "Prishtina-Bardhosh",
-  "Podujeva-Prishtina (Vellezerit Fazliu)",
+  "Podujevë-Prishtina (Vellezerit Fazliu)",
   "Qender-Podujevë",
   "Ilir Konushevci-Agim Ramadani",
   "Ilir Konushevci-Agim Ramadani-2",
@@ -73,6 +78,7 @@ const directions = [
   "Fontana-Agim Ramadani",
   "Rrethrrotullim (QKUK)-Barnatore",
   "Prelluzhe-Plemetin",
+  "Mitrovicë-Prishtinë (Gazimestan)",
   "Dogana-Rrethrrotullim (Stacioni i Autobuseve)",
   "Rrethrrotullim (Rruga Tirana)-Hekurudha",
   "Stacioni i Trenit (Prishtinë)-Rrethrrotullim (Rruga Tirana)",
@@ -82,18 +88,30 @@ const directions = [
   "Rrethrrotullim (Komuna e Re)-Komuna e Re",
   "Komuna e Re-Rrethrrotullim (Te Ismeti)",
   "UCK-Tirana",
+  "Obiliq(Tyrbe)-Prishtinë",
   "L Prizrenit-Agim Ramadani",
   "Rr. Zagrebit-Xhami e Llapit",
+  "QKUK-Muharrem Fejza",
   "Agim Ramadani-Ibrahim Lutfiu",
   "Xhamia e Llapit-Llukar",
   "Gjimnazi-Haxhi Zeka",
   "Prishtinë-Llukar",
+  "Fushe Kosovë-Uglarë",
   "Qytet-Germi",
+  "Obiliq (Mitrovicë)-Prishtinë",
   "Shefqet Shkupi-M2",
   "Shefqet Shkupi-M2-2",
   "Rrethrrotullim (Hotel Garden)-Stacioni i Autobuseve",
   "Fak Bujqesise-Rrethrrotullim (Hotel Garden)",
   "Shefqet Shkupi-Rrethrrotullim (Hotel Garden)",
+  "Gjergj Balsha-Mitrovicë",
+  "Autostrada Ibrahim Rugova-Prishtinë",
+  "QKUK-Muharrem Fejza",
+  "Bregu i diellit-Rruga B",
+  "Graqanice-Prishtinë",
+  "Gjilan-Prishtinë",
+  "Gazmend Zajmi-Rrethrrotullim (Bregu i diellit)",
+  "Lagje e Spitalit-Matiqan"
 ];
 const cities = [
   "Prishtinë (Ambasada Amerikane)",
@@ -103,14 +121,12 @@ const cities = [
   "Prishtinë",
   "Gjergj Balsha",
   "Obiliq (Mitrovicë)",
-  "Obiliq",
   "Prishtinë (Bast Trade)",
   "Prishtinë (Mitrovicë)",
   "Autostrada Ibrahim Rugova",
   "Prishtinë (Gazimestan)",
   "Prishtinë (Millosheve)",
-  "Obiliq-Podujeve",
-  "Podujeve",
+  "Obiliq",
   "Obiliq-2",
   "Obliliq(Tyrbe)",
   "Kosova C-Obiliq",
@@ -151,7 +167,6 @@ const cities = [
   "Xhamia e Matit",
   "Zllatar",
   "Bardhosh",
-  "Podujeva",
   "Prishtina (Vellezerit Fazliu)",
   "Ilir Konushevci",
   "Agim Ramadani",
@@ -211,6 +226,111 @@ const cities = [
   "Stacioni i Autobuseve",
   "Fak Bujqesise",
 ];
+const cities1 = [
+  "Prishtinë (Ambasada Amerikane)",
+  "Mitrovicë",
+  "Prishtinë (Te Ismeti)",
+  "Prishtinë",
+  "Fushë Kosovë",
+  "Gjergj Balsha",
+  "Obiliq",
+  "Prishtinë (Bast Trade)",
+  "Prishtinë (Mitrovicë)",
+  "Autostrada Ibrahim Rugova",
+  "Prishtinë (Gazimestan)",
+  "Podujevë",
+  "Obiliq(Tyrbe)",
+  "Kosova C",
+  "QKUK",
+  "Qender",
+  "Graqanice",
+  "Gjilan",
+  "EULEX",
+  "A.A.Kelmendi",
+  "Rrethrrotullim (Rruga B)",
+  "Gazmend Zajmi",
+  "Rrethrrotullim (Bregu i diellit)",
+  "Tahir Zajmi (Kalabria)",
+  "M9",
+  "Dardania",
+  "Bill Clinton",
+  "Tirana (LAKRISHTE)",
+  "Robert Dol (PEJTON)",
+  "Ilaz Kodra",
+  "28 Nëntori",
+  "Dëshmorët e Kombit",
+  "Imzot Nikprela",
+  "Fehmi Lladrovci",
+  "Rrethrrotullim (QKUK)",
+  "Muharrem Fejza",
+  "Rruga B",
+  "Rrethrrotullim (Muharrem Fejza)",
+  "Bregu i diellit",
+  "Enver Maloku (AKTASH)",
+  "Shfmu Iliria",
+  "Matiqan",
+  "Lagje e Spitalit",
+  "Velania",
+  "Shfmu Mitrush Kuteli",
+  "Xhamia e Matit",
+  "Zllatar",
+  "Prishtina",
+  "Bardhosh",
+  "Prishtina (Vellezerit Fazliu)",
+  "Ilir Konushevci",
+  "Agim Ramadani",
+  "PTK",
+  "Rrethrrotullim (Flamuri)",
+  "American Hospital",
+  "Aloka Hospital",
+  "Çaglavica",
+  "Prishtina (Lagjia Marigona)",
+  "Ferizaj",
+  "Hotel Victory",
+  "Stacioni i Autobuseve",
+  "Katedralja Nënë Tereza",
+  "Rrethrrotullim (Stacioni i Autobuseve)",
+  "Qender (Prishtinë)",
+  "Prishtina (M9)",
+  "F.Kosovë",
+  "Rruga Nënë Tereza",
+  "Rrethrrotullim (F.Kosovë)",
+  "Stacioni i Trenit (F.Kosovë)",
+  "Rruga e Pejës",
+  "Vragoli",
+  "Miradi e Eperme",
+  "Fushe Kosovë",
+  "Uglarë",
+  "Fontana",
+  "Barnatore",
+  "Prelluzhe",
+  "Plemetin",
+  "Dogana",
+  "Rrethrrotullim (Rruga Tirana)",
+  "Hekurudha",
+  "Stacioni i Trenit (Prishtinë)",
+  "Rr. E Zagrebit",
+  "Xhamia e Llapit",
+  "Rrethrrotullim (Rr. Ahmet Krasniqi)",
+  "Komuna e re",
+  "Komuna e Re",
+  "Rrethrrotullim (Komuna e Re)",
+  "Rrethrrotullim (Te Ismeti)",
+  "UCK",
+  "L Prizrenit",
+  "Rr. Zagrebit",
+  "Ibrahim Lutfiu",
+  "Llukar",
+  "Gjimnazi",
+  "Haxhi Zeka",
+  "Qytet",
+  "Germi",
+  "Shefqet Shkupi",
+  "M2",
+  "Rrethrrotullim (Hotel Garden)",
+  "Fak Bujqesise",
+  "Shefqet Shkupi",
+];
 const carTypes = [
   "car_a1",
   "lgv_a2",
@@ -237,6 +357,16 @@ const SelectCity = ({ name, value, onChange }) => (
   <select name={name} value={value} onChange={onChange}>
     <option value="">Select Destination</option>
     {cities.map((city, index) => (
+      <option key={index} value={city}>
+        {city}
+      </option>
+    ))}
+  </select>
+);
+const SelectStartCity = ({ name, value, onChange }) => (
+  <select name={name} value={value} onChange={onChange}>
+    <option value="">Select Destination</option>
+    {cities1.map((city, index) => (
       <option key={index} value={city}>
         {city}
       </option>
@@ -362,22 +492,22 @@ function App() {
     if (!filters.start_destination) {
       return cities;
     }
-    
+
     const startCity = filters.start_destination;
-    
+
     // Filter directions to find those starting with the selected start city
     const matchingDirections = directions.filter((direction) =>
       direction.startsWith(startCity)
     );
-  
+
     // Extract the end destinations from the filtered directions
     const endDestinations = matchingDirections.map((direction) =>
       direction.split("-")[1].trim()
     );
-  
+
     return endDestinations;
   };
-  
+
   const colors = ["#A52A2A", "#FFF8DC", "#FFB6C1", "#FFFF00"];
 
   const quarterChartOptions = {
@@ -522,7 +652,6 @@ function App() {
       });
     }
   };
-
   return (
     <div className="App">
       <div className="traffic-light-file-input">
@@ -562,7 +691,7 @@ function App() {
           <div className="filter-data-display">
             <div className="">
               <label className="filter-option">
-                Destination:{" "}
+              Main Destination:{" "}
                 <SelectDirection
                   name="Main_Direction"
                   value={filters.Main_Direction}
@@ -574,7 +703,7 @@ function App() {
               {" "}
               <label className="filter-option">
                 Start Destination:
-                <SelectCity
+                <SelectStartCity
                   name="start_destination"
                   value={filters.start_destination}
                   onChange={handleFilterChange}
@@ -587,7 +716,9 @@ function App() {
                   value={filters.end_destination}
                   onChange={handleFilterChange}
                 >
-                  <option value="" style={{width:"100%"}}>Select Filtered End Destination  </option>
+                  <option value="" style={{ width: "100%" }}>
+                    Select Filtered End Destination{" "}
+                  </option>
                   {getAvailableDestinations().map((city) => (
                     <option key={city} value={city}>
                       {city}
