@@ -1,7 +1,7 @@
-Paraqitja Grafike e të Dhënave të Trafikut Urban për Qytetin e Prishtinës
-(Visual Representation of Urban Traffic Data for Prishtina using ReactJS Library)
+**Paraqitja Grafike e të Dhënave të Trafikut Urban për Qytetin e Prishtinës
+(Visual Representation of Urban Traffic Data for Prishtina using ReactJS Library) **
 
-Overview
+#Overview
 This project presents a graphical visualization of urban traffic data for the city of Prishtina. The solution leverages ReactJS for dynamic user interfaces, ApexCharts for creating interactive and customizable charts, and SCSS for styling. The goal is to provide a user-friendly and visually appealing platform for analyzing traffic trends.
 
 Features
